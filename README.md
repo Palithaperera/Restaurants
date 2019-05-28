@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Before running the app create .env file inside the root folder and inclue this line.
+EACT_APP_MAP_API_KEY = YOUR_API_KEY
+Replace "YOUR_API_KEY" with a google maps api key.
+
 ## Available Scripts
 
 In the project directory, you can run:
