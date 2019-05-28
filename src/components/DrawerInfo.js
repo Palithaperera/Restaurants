@@ -11,6 +11,10 @@ import CardActions from '@material-ui/core/CardActions'
 import IconButton from '@material-ui/core/IconButton'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import ShareIcon from '@material-ui/icons/Share'
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { addToFavourites } from '../actions';
 
 class DrawerInfo extends React.Component {
@@ -23,10 +27,11 @@ class DrawerInfo extends React.Component {
                         avatar={
                             <Avatar src={selected.logo} />
                         }
-                        title={selected.restaurantInfo.name}
+                        title={`${selected.restaurantInfo.name} Rating: ${selected.restaurantInfo.rating}/10`}
+                        
                     />
                     <CardMedia
-                        style={{height: "40vh"}}
+                        style={{height: "43vh"}}
                         image={selected.img}
                     />
                     <CardContent>
@@ -34,6 +39,18 @@ class DrawerInfo extends React.Component {
                             {selected.restaurantInfo.description}
                         </Typography>
                     </CardContent>
+                    <ExpansionPanel>
+                        <ExpansionPanelSummary
+                            expandIcon={<ExpandMoreIcon />}
+                        >
+                            <Typography>Menu</Typography>
+                        </ExpansionPanelSummary>
+                        <ExpansionPanelDetails>
+                            <Typography>
+                                {selected.restaurantInfo.menu}
+                            </Typography>
+                        </ExpansionPanelDetails>
+                    </ExpansionPanel>
                     <CardActions>
                         <IconButton
                             aria-label="Add to favorites"
@@ -43,7 +60,7 @@ class DrawerInfo extends React.Component {
                         </IconButton>
                         <IconButton aria-label="Share">
                             <ShareIcon />
-                    </IconButton>
+                        </IconButton>
                     </CardActions>
                 </Card>
             </div>: "Not selected"

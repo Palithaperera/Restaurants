@@ -57,7 +57,7 @@ class HeaderPanel extends React.Component {
                                     {this.props.types.map(
                                         (type) => {
                                             return (
-                                                <MenuItem value={type} key="type">
+                                                <MenuItem value={type} key={type}>
                                                     <Typography variant="subtitle1">
                                                         {type}
                                                     </Typography>                                        
